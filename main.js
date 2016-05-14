@@ -6,7 +6,9 @@ io = require('socket.io').listen(server);
 var SerialPort = require("serialport").SerialPort
 var serialPort = new SerialPort("/dev/tty.usbmodem1421", { baudrate: 115200 });
 
-server.listen(3000);
+port = process.env.PORT || 3000;
+server.listen(port);
+//server.listen(3000);
 app.use(express.static('public'));		
 
 var brightness = 0;
